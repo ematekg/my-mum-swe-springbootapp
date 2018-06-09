@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <title>Hotel Booking App</title>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css"  th:href="@{/css/bootstrap.min.css}"/>
+    <style>
+        #outer {
+            margin: 0 auto; /*center*/
+
+        }
+
+        #inner {
+            /*move the whole container 50px to the left side*/
+            margin-left:50px;
+
+            /*or move the whole container 50px to the right side*/
+            /*
+            margin-left:50px;
+            margin-right:-50px;
+            */
+        }
+    </style>
+
+</head>
+
+<body >
+
+<header>
+
+    <div th:replace="homelayout :: header"></div>
+
+
+</header>
+
+
+
+<div id="outer">
+
+    <div id="inner" class="row">
+
+        <div class="col-lg-offset-2 col-lg-8">
+
+            <!-- Get all bookings or only affordable ones -->
+
+
+
+
+
+            <!-- Display bookings in a table -->
+
+
+
+            <table class="table table-striped">
+                <thead>
+                <th>Hotel Name</th>
+                <th>Price Per Night</th>
+                <th>Minimum Days for Booking</th>
+                <th>Actions</th>
+                </thead>
+                <tbody>
+                <tr th:each="booking : ${bookings}">
+                    <td th:text="${booking.getHotelName()}"></td>
+                    <td th:text="${booking.getPricePerNight()}"></td>
+                    <td th:text="${booking.getNbOfNights()}"></td>
+                    <td>
+                        <a class="btn btn-danger" th:href="@{'/bookings/' + ${booking.getId()}}">Edit</a>&nbsp;
+                        <a class="btn btn-danger" th:href="@{'/bookings/delete/' + ${booking.getId()}}">Delete</a>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <a class="btn btn-primary" th:href="@{/bookings/add}">Add New</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+<div th:replace="homelayout :: footer" ></div>
+</html>

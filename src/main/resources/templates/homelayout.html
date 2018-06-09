@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+
+<nav  th:fragment="header">
+    <ol class="breadcrumb"   aria-controls="" >
+        <li class="breadcrumb-item"><a href="#" th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item"><a href="#" th:href="@{/bookings/list}">List Of Booking</a></li>
+
+    </ol>
+</nav>
+
+<body>
+
+
+
+</body>
+<div th:fragment="footer"  class="footer-copyright text-center py-3">
+    &copy; 2018 (Amanuel T. Goitom)
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</div>
+
+</html>
